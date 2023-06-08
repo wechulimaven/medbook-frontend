@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../shared/service/navigation_service.dart';
 import '../bloc/signup/signup_cubit.dart';
 import '../local_storage/shared_preference_helper.dart';
 import '../network/api_provider.dart';
@@ -14,6 +15,7 @@ Future<void> setUpLocator() async {
   // local
   final preferences = await SharedPreferences.getInstance();
   inject.registerLazySingleton(() => preferences);
+  inject.registerSingleton(NavigationService());
   inject.registerSingleton<SharedHelper>(
       SharedHelperImpl(sharedPreferences: inject()));
 
