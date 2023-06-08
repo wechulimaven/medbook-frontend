@@ -1,13 +1,12 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import '../../local_storage/shared_preference_helper.dart';
 
 class AuthInterceptor extends Interceptor {
   final SharedHelper sharedHelper;
-  String? baseUrl = dotenv.env['API_BASE_URL'];
+  String? baseUrl = "https://6137-41-81-129-65.ngrok-free.app/api/v1/";
 
   AuthInterceptor(this.sharedHelper);
 
